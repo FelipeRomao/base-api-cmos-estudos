@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { users, UserService } from './user.service';
+import { users, UserService } from '.';
 
 let userService: UserService;
 

@@ -19,7 +19,7 @@ import {
 } from '@nestjs/swagger';
 import { CreateUserDto, UserResponseDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { UserService } from './user.service';
+import { UserService } from '../../core/app/services/user';
 
 @ApiTags('Usuário')
 @Controller('user')
