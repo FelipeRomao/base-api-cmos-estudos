@@ -17,21 +17,21 @@ import {
   ApiTags,
   getSchemaPath,
 } from '@nestjs/swagger';
+import { UserService } from 'src/core/app/services/create-user.serice';
 import { CreateUserDto, UserResponseDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { UserService } from './user.service';
+/* import { UpdateUserDto } from './dto/update-user.dto'; */
 
 @ApiTags('Usuário')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('findAll')
+  /* @Get('findAll')
   @ApiHeader({ name: 'locale', required: true })
   @ApiQuery({ name: 'username', required: false })
   findAll(@Headers() { locale }, @Query('username') username: string) {
     return this.userService.findAll();
-  }
+  } */
 
   @Post('create')
   @ApiExtraModels(UserResponseDto)
@@ -43,10 +43,10 @@ export class UserController {
     },
   })
   create(@Body() values: CreateUserDto) {
-    return this.userService.create(values);
+    return this.userService.handle(values);
   }
 
-  @ApiExtraModels(UserResponseDto)
+  /* @ApiExtraModels(UserResponseDto)
   @ApiResponse({
     status: HttpStatus.CREATED,
     description: 'operação realizada com sucesso segue nesse formato abaixo:',
@@ -57,5 +57,5 @@ export class UserController {
   @Put('update/:id')
   update(@Param('id') id: string, @Body() values: UpdateUserDto) {
     return this.userService.update(id, values);
-  }
+  } */
 }

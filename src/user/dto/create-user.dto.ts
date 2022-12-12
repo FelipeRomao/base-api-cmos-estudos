@@ -14,6 +14,10 @@ export class CreateUserDto {
   @IsString()
   @ApiProperty({ example: 'Fel@2022' })
   password: string;
+
+  @IsString()
+  @ApiProperty({ example: 'Fel@2022' })
+  email: string;
 }
 
 export class UserResponseDto {
